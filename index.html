@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- tailwind and daisy  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header class="bg-blue-500">
+      <h2 class="text-6xl font-semibold text-center p-12 text-white">
+        Hunting Phone
+      </h2>
+    </header>
+    <main class="container mx-auto mt-8">
+      <section class="bg-gray-300 my-8 p-6 rounded">
+        <div class="form-control">
+          <div class="input-group">
+            <input
+              id="search-field"
+              type="text"
+              placeholder="Search…"
+              class="input input-bordered"
+            />
+            <button onclick="handleSearch()" class="btn btn-square">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section>
+        <!-- spinner or loader  -->
+        <div id="loading-spinner" class="text-center my-40 hidden">
+          <span class="loading loading-spinner loading-lg"></span>
+        </div>
+        <div
+          id="phone-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        ></div>
+        <!-- show all products  -->
+        <div id="show-all-product-btn" class="hidden text-center my-8">
+          <button onclick="handleShowAll()" class="btn btn-accent">
+            Show All
+          </button>
+        </div>
+      </section>
+      <!-- Open the modal using ID.showModal() method -->
+      <dialog
+        id="show_details_showModal"
+        class="modal modal-bottom sm:modal-middle"
+      >
+        <form method="dialog" class="modal-box">
+          <figure
+            id="show-image"
+            class="px-10 pt-10 flex justify-center"
+          ></figure>
+          <div class="card-body">
+            <h2
+              id="show-details-phone-name"
+              class="card-title text-2xl font-bold"
+            ></h2>
+            <div id="show-details-container"></div>
+          </div>
+          <div class="modal-action">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </div>
+        </form>
+      </dialog>
+    </main>
+    <script src="js/phone.js"></script>
+  </body>
+</html>
